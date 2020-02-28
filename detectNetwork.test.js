@@ -149,7 +149,7 @@ describe('Discover', function() {
 
       it('has a prefix of ' + prefix + ' and a length of 16', function() {
         if (detectNetwork(prefix + '6011601160116') !== 'Discover') {
-          console.log(prefix + '6011601160116');
+          console.log(detectNetwork(prefix + '6011601160116'));
           throw new Error('Test failed');
         }
       }); 
