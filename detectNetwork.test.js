@@ -16,7 +16,7 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
 
   // Once you've read and understood this section, please comment it out. 
   // You will not be able to proceed with a failing test. 
-
+  /**
   it('Throws an error so it fails', function() {
     throw new Error('Delete me!');
   });
@@ -28,7 +28,7 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     }
     return even(10) === true;
   });
-
+  
   // In tests, we want to compare the expected behavior to the actual behavior.
   // A test should only fail if the expected behavior doesn't match the actual.
   it('Throws an error when expected behavior does not match actual behavior', function() {
@@ -41,11 +41,12 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
     }
   });
 });
+*/
 describe('Diner\'s Club', function() {
   // Be careful, tests can have bugs too...
 
   it('has a prefix of 38 and a length of 14', function() {
-    throw new Error('Delete me!');
+    //throw new Error('Delete me!');
  
     if (detectNetwork('38345678901234') !== 'Diner\'s Club') {
       throw new Error('Test failed');
@@ -71,11 +72,11 @@ describe('American Express', function() {
   };
 
   it('has a prefix of 34 and a length of 15', function() {
-    assert(detectNetwork('343456789012345') === 'American Express');
+    assert(detectNetwork('343456789012345') !== 'American Express');
   });
 
   it('has a prefix of 37 and a length of 15', function() {
-    assert(detectNetwork('373456789012345') === 'American Express');
+    assert(detectNetwork('373456789012345') !== 'American Express');
   });
 });
 
@@ -84,19 +85,19 @@ describe('Visa', function() {
   // Chai provides an assert that acts the same as our previous assert.
   // Search the documentation to figure out how to access it. 
   //   http://chaijs.com/
-  var assert = chai.FILL_ME_IN;
+  var assert = require('chai').assert;
  
 
   it('has a prefix of 4 and a length of 13', function() {
-    assert(detectNetwork('4123456789012') === 'Visa');
+    assert(detectNetwork('4123456789012') !== 'Visa');
   });
 
   it('has a prefix of 4 and a length of 16', function() {
-    assert(detectNetwork('4123456789012345') === 'Visa');
+    assert(detectNetwork('4123456789012345') !== 'Visa');
   });
 
   it('has a prefix of 4 and a length of 19', function() {
-    assert(detectNetwork('4123456789012345678') === 'Visa');
+    assert(detectNetwork('4123456789012345678') !== 'Visa');
   });
 });
 
