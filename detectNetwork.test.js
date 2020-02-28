@@ -7,7 +7,8 @@
 // other places in this file where you'll replace the FILL_ME_IN with a
 // different value.
 var FILL_ME_IN = 'Fill this value in';
- 
+
+ /**
 describe('Introduction to Mocha Tests - READ ME FIRST', function() {
   // A Mocha test is just a function!
   // If the function throws an error when run, it fails.
@@ -16,7 +17,7 @@ describe('Introduction to Mocha Tests - READ ME FIRST', function() {
 
   // Once you've read and understood this section, please comment it out. 
   // You will not be able to proceed with a failing test. 
-  /**
+  
   it('Throws an error so it fails', function() {
     throw new Error('Delete me!');
   });
