@@ -191,16 +191,20 @@ describe('Maestro', function() {
     (function(length) {    
 
       it('has a prefix of 5018 and a length of ' + length, function() {
-        if (length === 12) assert(detectNetwork('501850185018') === 'Maestro');
+        assert(detectNetwork('50185018' + '5'.repeat(length-8)) === 'Maestro');
       }); 
 
-      it('has a prefix of 5018 and a length of ' + length, function() {
-        if (length === 12) assert(detectNetwork('501850185018') === 'Maestro');
+      it('has a prefix of 5020 and a length of ' + length, function() {
+        assert(detectNetwork('50205018' + '5'.repeat(length-8)) === 'Maestro');
       }); 
 
+      it('has a prefix of 5038 and a length of ' + length, function() {
+        assert(detectNetwork('50385018' + '5'.repeat(length-8)) === 'Maestro');
+      }); 
 
-
-
+      it('has a prefix of 6304 and a length of ' + length, function() {
+        assert(detectNetwork('63045018' + '5'.repeat(length-8)) === 'Maestro');
+      }); 
 
     }) (length)
   }
