@@ -310,7 +310,7 @@ describe('Switch', function() {
   var test = function(length, prefix) {
     var cardNumber = prefix + '0'.repeat(length - prefix.length);
 
-    it('has a prefix of ' + prefix ' and a length of ' + length, function() { 
+    it('has a prefix of ' + prefix + ' and a length of ' + length, function() { 
       detectNetwork(cardNumber).should.equal('Switch'); 
     });
   
