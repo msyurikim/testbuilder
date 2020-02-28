@@ -303,3 +303,44 @@ describe('China UnionPay', function() {
 
 });
 
+//Switch always has a prefix of 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759 and a length of 16, 18, or 19.
+describe('Switch', function() {
+  var should = chai.should();
+
+  var test = function(length, prefix) {
+    var cardNumber = prefix + '0'.repeat(length - prefix.length);
+
+    it('has a prefix of ' + prefix ' and a length of ' + length, function() {
+      detectNetwork('cardNumber').should.equal('Switch');
+    });
+  };
+  
+  test(16, '4903');
+  test(16, '4905');
+  test(16, '4911');
+  test(16, '4936');
+  test(16, '6333');
+  test(16, '6759');
+  test(16, '564182');
+  test(16, '633110');
+
+  test(18, '4903');
+  test(18, '4905');
+  test(18, '4911');
+  test(18, '4936');
+  test(18, '6333');
+  test(18, '6759');
+  test(18, '564182');
+  test(18, '633110');
+
+  test(19, '4903');
+  test(19, '4905');
+  test(19, '4911');
+  test(19, '4936');
+  test(19, '6333');
+  test(19, '6759');
+  test(19, '564182');
+  test(19, '633110');
+  
+});
+

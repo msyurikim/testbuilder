@@ -52,7 +52,11 @@ var detectNetwork = function(cardNumber) {
 
   //Switch always has a prefix of 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759 and a length of 16, 18, or 19.
   //Heads up! Switch and Visa seem to have some overlapping card numbers - in any apparent conflict, you should choose the network with the longer prefix.
-
+  if ((length === 16 || length === 18 || length = 19) && 
+    (prefix(4) === 4903 || prefix(4) === 4905  || prefix(4) === 4911 || prefix(4) === 4936  || prefix(4) === 6333 || prefix(4) === 6759  || 
+    prefix(6) === 564182 || prefix(6) === 633110) ) {
+      network = 'Switch';
+  }
 
   return network;
 };
