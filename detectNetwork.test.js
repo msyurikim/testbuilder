@@ -261,3 +261,45 @@ describe('Maestro', function() {
   });
 });
 
+//China UnionPay always has a prefix of 622126-622925, 624-626, or 6282-6288 and a length of 16-19.
+describe('China UnionPay', function() {
+  var assert = chai.assert;
+
+  for (var length = 16; length <= 19; length++) {  
+    (function(length) {    
+
+      for (var prefix = 622126; prefix <= 622925; prefix++) {  
+        (function(prefix) {    
+
+          it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+            assert(detectNetwork(prefix + '6011601160' + '1'.repeat(length-16)) === 'China UnionPay'); 
+          }); 
+
+        }) (prefix)
+      }
+
+      for (var prefix = 624; prefix <= 626; prefix++) {  
+        (function(prefix) {    
+
+          it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+            assert(detectNetwork(prefix + '6011601160116' + '1'.repeat(length-16)) === 'China UnionPay'); 
+          }); 
+
+        }) (prefix)
+      }
+
+      for (var prefix = 6282; prefix <= 6288; prefix++) {  
+        (function(prefix) {    
+
+          it('has a prefix of ' + prefix + ' and a length of ' + length, function() {
+            assert(detectNetwork(prefix + '601160116011' + '1'.repeat(length-16)) === 'China UnionPay'); 
+          }); 
+
+        }) (prefix)
+      }
+
+    }) (length)
+  }
+
+});
+
