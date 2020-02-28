@@ -305,13 +305,14 @@ describe('China UnionPay', function() {
 
 //Switch always has a prefix of 4903, 4905, 4911, 4936, 564182, 633110, 6333, or 6759 and a length of 16, 18, or 19.
 describe('Switch', function() {
-  var should = chai.should();
+  //var should = chai.should();
 
   var test = function(length, prefix) {
     var cardNumber = prefix + '0'.repeat(length - prefix.length);
 
     it('has a prefix of ' + prefix + ' and a length of ' + length, function() { 
-      detectNetwork(cardNumber).should.equal('Switch'); 
+      //detectNetwork(cardNumber).should.equal('Switch'); 
+      expect(detectNetwork(cardNumber)).to.equal('Switch');
     });
   
   };
