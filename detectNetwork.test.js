@@ -148,12 +148,12 @@ describe('Discover', function() {
     (function(prefix) {    
 
       it('has a prefix of ' + prefix + ' and a length of 16', function() {
-        if (detectNetwork(prefix + '6011601160116') === 'Discover')
+        if (detectNetwork(prefix + '6011601160116') !== 'Discover')
           throw new Error('Test failed');
       }); 
 
       it('has a prefix of ' + prefix + ' and a length of 19', function() {
-        if (detectNetwork(prefix + '6011601160116011') === 'Discover')
+        if (detectNetwork(prefix + '6011601160116011') !== 'Discover')
           throw new Error('Test failed');
       });   
 
@@ -161,22 +161,22 @@ describe('Discover', function() {
   }
 
   it('has a prefix of 6011 and a length of 16', function() {
-    if (detectNetwork('6011601160116011') === 'Discover')
+    if (detectNetwork('6011601160116011') !== 'Discover')
       throw new Error('Test failed');
   });
 
   it('has a prefix of 6011 and a length of 19', function() {
-    if (detectNetwork('6011601160116011601') === 'Discover')
+    if (detectNetwork('6011601160116011601') !== 'Discover')
       throw new Error('Test failed');
   });
 
   it('has a prefix of 65 and a length of 16', function() {
-    if (detectNetwork('6511601160116011') === 'Discover')
+    if (detectNetwork('6511601160116011') !== 'Discover')
       throw new Error('Test failed');
   });
 
   it('has a prefix of 65 and a length of 19', function() {
-    if (detectNetwork('6511601160116011601') === 'Discover')
+    if (detectNetwork('6511601160116011601') !== 'Discover')
       throw new Error('Test failed');
   });
 
@@ -186,7 +186,24 @@ describe('Maestro', function() {
   // Write full test coverage for the Maestro card
   //Maestro always has a prefix of 5018, 5020, 5038, or 6304, and a length of 12-19.
   var assert = chai.assert;
- 
+
+  for (var length = 12; length <= 19; length++) {  
+    (function(length) {    
+
+      it('has a prefix of 5018 and a length of ' + length, function() {
+        if (length === 12) assert(detectNetwork('501850185018') === 'Maestro');
+      }); 
+
+      it('has a prefix of 5018 and a length of ' + length, function() {
+        if (length === 12) assert(detectNetwork('501850185018') === 'Maestro');
+      }); 
+
+
+
+
+
+    }) (length)
+  }
 
   it('has a prefix of 4 and a length of 13', function() {
     assert(detectNetwork('4123456789012') === 'Visa');
