@@ -31,7 +31,7 @@ var detectNetwork = function(cardNumber) {
   		return 'MasterCard';
 
   //Discover always has a prefix of 6011, 644-649, or 65, and a length of 16 or 19.
-  if ((length === 16 || length === 19) && (prefix(4) === '6011' || prefix(2) === '65' || (parseInt(prefix(3)) >= 644 && parseInt(prefix(3)) <= 649)) 
+  if ((length === 16 || length === 19) && (prefix(4) === '6011' || prefix(2) === '65' || (parseInt(prefix(3)) >= 644 && parseInt(prefix(3)) <= 649))) 
       return 'MasterCard';
 
   //Maestro always has a prefix of 5018, 5020, 5038, or 6304, and a length of 12-19.
