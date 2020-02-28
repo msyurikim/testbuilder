@@ -35,7 +35,7 @@ var detectNetwork = function(cardNumber) {
       return 'MasterCard';
 
   //Maestro always has a prefix of 5018, 5020, 5038, or 6304, and a length of 12-19.
-  if ((length >== 12 && length <== 19) && (prefix(4) === '5018' || prefix(4) === '5020' || prefix(4) === '5038' || prefix(4) === '6304')) 
+  if ((length >= 12 && length <= 19) && (prefix(4) === '5018' || prefix(4) === '5020' || prefix(4) === '5038' || prefix(4) === '6304')) 
       return 'Maestro';
 
 };
