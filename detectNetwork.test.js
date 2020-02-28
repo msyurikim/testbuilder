@@ -144,6 +144,22 @@ describe('MasterCard', function() {
 describe('Discover', function() {
   // Tests without a function will be marked as "pending" and not run
   // Implement these tests (and others) and make them pass!
+  for (var prefix = 644; prefix <= 649; prefix++) {  
+    (function(prefix) {    
+
+      it('has a prefix of ' + prefix + ' and a length of 16', function() {
+        if (detectNetwork(prefix + '6011601160116') === 'Discover')
+          throw new Error('Test failed');
+      }); 
+
+      it('has a prefix of ' + prefix + ' and a length of 19', function() {
+        if (detectNetwork(prefix + '6011601160116011') === 'Discover')
+          throw new Error('Test failed');
+      });   
+
+    }) (prefix)
+  }
+
   it('has a prefix of 6011 and a length of 16', function() {
     if (detectNetwork('6011601160116011') === 'Discover')
       throw new Error('Test failed');
@@ -154,9 +170,34 @@ describe('Discover', function() {
       throw new Error('Test failed');
   });
 
+  it('has a prefix of 65 and a length of 16', function() {
+    if (detectNetwork('6511601160116011') === 'Discover')
+      throw new Error('Test failed');
+  });
+
+  it('has a prefix of 65 and a length of 19', function() {
+    if (detectNetwork('6511601160116011601') === 'Discover')
+      throw new Error('Test failed');
+  });
+
 });
 
 describe('Maestro', function() {
   // Write full test coverage for the Maestro card
+  //Maestro always has a prefix of 5018, 5020, 5038, or 6304, and a length of 12-19.
+  var assert = chai.assert;
+ 
+
+  it('has a prefix of 4 and a length of 13', function() {
+    assert(detectNetwork('4123456789012') === 'Visa');
+  });
+
+  it('has a prefix of 4 and a length of 16', function() {
+    assert(detectNetwork('4123456789012345') === 'Visa');
+  });
+
+  it('has a prefix of 4 and a length of 19', function() {
+    assert(detectNetwork('4123456789012345678') === 'Visa');
+  });
 });
 
